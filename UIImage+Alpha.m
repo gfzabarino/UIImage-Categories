@@ -24,8 +24,9 @@
     
     CGFloat scale = MAX(self.scale, 1.0f);
     CGImageRef imageRef = self.CGImage;
-    size_t width = CGImageGetWidth(imageRef)*scale;
-    size_t height = CGImageGetHeight(imageRef)*scale;
+    // CGImageGetWidth/Height returns the bitmap size which includes the scale, so no need of multiply by that
+    size_t width = CGImageGetWidth(imageRef);
+    size_t height = CGImageGetHeight(imageRef);
     
     // The bitsPerComponent and bitmapInfo values are hard-coded to prevent an "unsupported parameter combination" error
     CGContextRef offscreenContext = CGBitmapContextCreate(NULL,
