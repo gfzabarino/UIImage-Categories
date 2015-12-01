@@ -22,7 +22,6 @@
         return self;
     }
     
-    CGFloat scale = MAX(self.scale, 1.0f);
     CGImageRef imageRef = self.CGImage;
     // CGImageGetWidth/Height returns the bitmap size which includes the scale, so no need of multiply by that
     size_t width = CGImageGetWidth(imageRef);
